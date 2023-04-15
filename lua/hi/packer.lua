@@ -50,6 +50,7 @@ return require('packer').startup(function(use)
   'lewis6991/gitsigns.nvim',
   -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
 }
+<<<<<<< HEAD
   use {
   "folke/which-key.nvim",
   config = function()
@@ -63,6 +64,8 @@ return require('packer').startup(function(use)
   end
 }
 
+=======
+>>>>>>> d7fea3304a18310e627c2184932181971947b86d
   use("tpope/vim-fugitive")
   use('nvim-treesitter/nvim-treesitter-context')
 end)
