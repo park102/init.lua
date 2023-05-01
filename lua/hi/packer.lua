@@ -4,6 +4,8 @@
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
+  use 'nvim-tree/nvim-web-devicons'
+  use 'feline-nvim/feline.nvim'
   use 'wbthomason/packer.nvim'
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -64,6 +66,7 @@ return require('packer').startup(function(use)
 }
 
   use("tpope/vim-fugitive")
+  use("christoomey/vim-tmux-navigator")
   use('nvim-treesitter/nvim-treesitter-context')
 end)
 
