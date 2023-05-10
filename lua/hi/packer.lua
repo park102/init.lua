@@ -67,6 +67,7 @@ return require('packer').startup(function(use)
 
   use("tpope/vim-fugitive")
   use("christoomey/vim-tmux-navigator")
+  use('tmux-plugins/vim-tmux-focus-events')
   use('nvim-treesitter/nvim-treesitter-context')
 end)
 
