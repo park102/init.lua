@@ -1,3 +1,4 @@
+vim.g.maplocalleader = ','
 vim.g.mapleader = " "
 vim.keymap.set("n","<leader>j","<cmd>NvimTreeToggle<CR>")
 vim.keymap.set("i","<C-c>","<Esc>")
