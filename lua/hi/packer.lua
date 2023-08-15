@@ -3,28 +3,6 @@
 -- Only required if you have packer configured as `opt`
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use {
-    "nvim-neorg/neorg",
-    config = function()
-        require('neorg').setup {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        workspaces = {
-                            notes = "~/notes",
-                        },
-                        
-                        default_workspace = "notes",
-                    }
-                }
-            }
-        }
-    end,
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-}
   use('nvim-tree/nvim-tree.lua')
   use('nvim-tree/nvim-web-devicons')
   use('feline-nvim/feline.nvim')
@@ -42,7 +20,18 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     } 
-  use({
+
+    use({
+  "epwalsh/obsidian.nvim",
+  config = function()
+    require("obsidian").setup({
+      dir = "~/notes",
+
+      -- see below for full list of options 👇
+    })
+  end,
+})
+    use({
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
