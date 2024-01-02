@@ -14,7 +14,6 @@ require('lualine').setup {
     },
     lualine_a = {
       {
-        'buffers',
       }
     }
   }

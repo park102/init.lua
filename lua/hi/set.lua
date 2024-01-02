@@ -1,4 +1,7 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.g.vim_markdown_frontmatter = 1
+vim.opt.conceallevel = 1
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.notify = require("notify")

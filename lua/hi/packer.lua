@@ -3,12 +3,29 @@
 -- Only required if you have packer configured as `opt`
 return require('packer').startup(function(use)
   -- Packer can manage itself
+  use('wbthomason/packer.nvim')
+
+  use({
+  "epwalsh/obsidian.nvim",
+  tag = "*",  -- recommended, use latest release instead of latest commit
+  requires = {
+    -- Required.
+    "nvim-lua/plenary.nvim",
+
+    -- see below for full list of optional dependencies 👇
+  }
+  })
+  
   use('nvim-tree/nvim-tree.lua')
+  use({'norcalli/nvim-colorizer.lua',
+  config = function()
+      require'colorizer'.setup()
+  end
+  })
   use('nvim-tree/nvim-web-devicons')
   --use('feline-nvim/feline.nvim')
-  use('wbthomason/packer.nvim')
   use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  'nvim-telescope/telescope.nvim', tag = '0.1.3',
 -- or                            , branch = '0.1.x',
   requires = { {'nvim-lua/plenary.nvim'} }
 }
@@ -18,26 +35,6 @@ return require('packer').startup(function(use)
 }
   use({
   'folke/noice.nvim',
-   config = function()
-      require("noice").setup({
-        -- add any options here
-        routes = {
-          {
-            filter = {
-              event = 'msg_show',
-              any = {
-                { find = '%d+L, %d+B' },
-                { find = '; after #%d+' },
-                { find = '; before #%d+' },
-                { find = '%d fewer lines' },
-                { find = '%d more lines' },
-              },
-            },
-            opts = { skip = true },
-          }
-        },
-      })
-    end,
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
@@ -47,6 +44,15 @@ return require('packer').startup(function(use)
         "rcarriga/nvim-notify",
     }
 })
+  use({"folke/todo-comments.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+        require("todo-comments").setup({
+
+    })
+end
+})
+  use('folke/trouble.nvim')
   use('nvim-lua/plenary.nvim')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
@@ -64,7 +70,7 @@ return require('packer').startup(function(use)
   use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
-    } 
+    }
 
     use({
     'rose-pine/neovim',
