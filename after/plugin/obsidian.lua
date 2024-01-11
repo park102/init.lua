@@ -40,3 +40,11 @@ require("obsidian").setup({
   },
 
 })
+local wk = require("which-key")
+wk.register({
+  ["<leader>o"] = { name = "+obsidian" },
+  ["<leader>os"] = { "<cmd>ObsidianQuickSwitch<cr>", "Quick Switch" },
+  ["<leader>on"] = { "<cmd>ObsidianNew<cr>", "new note" },
+  ["<leader>of"] = { "<cmd>ObsidianSearch<cr>", "Obsidian Search" },
+})
+

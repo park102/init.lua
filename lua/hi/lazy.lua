@@ -66,13 +66,7 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
     },
-    {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    },
+    {"catppuccin/nvim", name = "catppuccin", priority = 1000},
     -- LSP Support
     {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
@@ -107,7 +101,13 @@ require("lazy").setup({
     {"tpope/vim-fugitive"},
     {"christoomey/vim-tmux-navigator"},
     {'nvim-treesitter/nvim-treesitter-context'},
-
+    {
+	"chrisgrieser/nvim-scissors",
+	dependencies = "nvim-telescope/telescope.nvim", -- optional
+	opts = {
+		snippetDir = vim.fn.stdpath("config") .. "/snippets",
+	    }
+    },
 
 
 })

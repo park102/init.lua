@@ -25,6 +25,7 @@ local on_attach = function(_, bufnr)
   --
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
+  require("luasnip.loaders.from_vscode").lazy_load { paths = { vim.fn.stdpath("config") .. "/snippets" } }
   local opts = {buffer = bufnr, remap = false}
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -134,7 +135,7 @@ cmp.setup({
         nvim_lsp = 'λ',
         luasnip = '⋗',
         buffer = 'Ω',
-        path = '🖫',
+        path = '󰈔',
       }
 
       item.menu = menu_icon[entry.source.name]
