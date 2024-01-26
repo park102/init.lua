@@ -1,3 +1,8 @@
+-- Enable the following language servers
+-- Feel free to add/remove any LSPs that you want here. They will automatically be installed
+local servers = {  "cmake", "jdtls", "bashls", "lua_ls", "pyright", "gradle_ls" }
+
+
 local signs = {
     Error = " ",
     Warning = " ",
@@ -60,9 +65,6 @@ end
 -- Setup mason so it can manage external tooling
 require('mason').setup()
 
--- Enable the following language servers
--- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = {  "cmake", "jdtls", "bashls", "lua_ls", "pyright", "gradle_ls" }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -82,6 +84,7 @@ end
 
 -- Turn on lsp status inrmation
 require('fidget').setup()
+vim.api.nvim_command("Fidget lsp_suppress true")
 
 -- Example custom configuration for lua
 --
