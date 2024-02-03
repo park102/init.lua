@@ -1,9 +1,12 @@
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+local harpoon = require("harpoon")
 local wk = require("which-key")
+
+harpoon:setup()
+
+
 wk.register({
-  ["<leader>k"] = { mark.add_file, "harpoon add file" },
-  ["<leader>l"] = { ui.toggle_quick_menu, "harpoon quick menu" },
-  ["<leader>s"] = { ui.nav_next, "harpoon next" },
-  ["<leader>a"] = { ui.nav_prev, "harpoon prev" },
+  ["<leader>k"] = { function() harpoon:list():append() end, "harpoon add file" },
+  ["<leader>l"] = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "harpoon quick menu" },
+  ["<leader>s"] = { function() harpoon:list():next() end, "harpoon next" },
+  ["<leader>a"] = { function() harpoon:list():prev() end, "harpoon prev" },
 } ,{mode = "n"})

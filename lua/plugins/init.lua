@@ -10,11 +10,13 @@ return {
 
     {"j-hui/fidget.nvim"},
     {"nvim-tree/nvim-tree.lua"},
+    --[[
     {"norcalli/nvim-colorizer.lua",
     config = function()
         require('colorizer').setup()
     end
-},
+    },
+    --]]
     {"nvim-tree/nvim-web-devicons"},
     {'nvim-telescope/telescope.nvim', version = '0.1.3'},
     {'nvim-lualine/lualine.nvim',
