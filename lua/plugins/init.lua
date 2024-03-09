@@ -8,7 +8,13 @@ return {
     }
     },
 
-    {"j-hui/fidget.nvim"},
+    {"j-hui/fidget.nvim",
+    opts = {
+    progress = {
+        suppress_on_insert = true
+    },
+    },
+    },
     {"nvim-tree/nvim-tree.lua"},
     --[[
     {"norcalli/nvim-colorizer.lua",
@@ -74,8 +80,8 @@ return {
     {'L3MON4D3/LuaSnip'},
     {'rafamadriz/friendly-snippets'},
     {
-  'lewis6991/gitsigns.nvim',
-  -- version = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    'lewis6991/gitsigns.nvim',
+    -- version = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     },
     {
         "folke/which-key.nvim",

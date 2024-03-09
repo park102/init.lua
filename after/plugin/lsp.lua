@@ -1,12 +1,12 @@
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = {  "cmake", "jdtls", "bashls", "lua_ls", "pyright", "gradle_ls" }
+local servers = { "rust_analyzer", "cmake", "jdtls", "bashls", "lua_ls", "pyright", "gradle_ls" }
 
 
 local signs = {
-    Error = " ",
-    Warning = " ",
-    Hint = " ",
+    Error = "󰅚 ",
+    Warning = " ",
+    Hint = "󰌶 ",
     Information = " "
 }
 
@@ -37,11 +37,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-  vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   local wk = require("which-key")
 wk.register({
   ["<leader>v"] = { name = "+lsp" },
